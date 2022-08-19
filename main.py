@@ -58,12 +58,19 @@ hurricane_data = dictionary_build(names, months, years, max_sustained_winds, are
 print(hurricane_data)
 
 
-
-
-
-
 # write your construct hurricane by year dictionary function here:
-
+def year_sort_dictionary(hurricane_data,years):
+    sorted_dictionary = {}
+    for i in range(len(years)):
+        entry_list = []
+        for e in hurricane_data:
+            hurricane = hurricane_data[e]
+            if hurricane["Year"] == years[i]:
+                entry_list.append(hurricane)
+        sorted_dictionary[years[i]] = entry_list
+    return sorted_dictionary
+sorted_dict = year_sort_dictionary(hurricane_data,years)
+print(sorted_dict)
 
 
 
