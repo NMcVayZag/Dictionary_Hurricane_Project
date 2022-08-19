@@ -1,3 +1,4 @@
+import numpy as np
 # names of hurricanes
 names = ['Cuba I', 'San Felipe II Okeechobee', 'Bahamas', 'Cuba II', 'CubaBrownsville', 'Tampico', 'Labor Day', 'New England', 'Carol', 'Janet', 'Carla', 'Hattie', 'Beulah', 'Camille', 'Edith', 'Anita', 'David', 'Allen', 'Gilbert', 'Hugo', 'Andrew', 'Mitch', 'Isabel', 'Ivan', 'Emily', 'Katrina', 'Rita', 'Wilma', 'Dean', 'Felix', 'Matthew', 'Irma', 'Maria', 'Michael']
 
@@ -73,12 +74,19 @@ sorted_dict = year_sort_dictionary(hurricane_data,years)
 print(sorted_dict)
 
 
-
-
-
-
 # write your count affected areas function here:
-
+def count_impacted_areas(areas_affected):
+    concated_list = [y for x in areas_affected for y in x]
+    unique_list = np.unique(concated_list)
+    unique_list = unique_list.tolist()
+    counting_dict = {}
+    for i in range(len(unique_list)):
+        count = concated_list.count(unique_list[i])
+        counting_dict[unique_list[i]] = count
+    return counting_dict
+    
+affected_area_count_dict = count_impacted_areas(areas_affected)
+print(affected_area_count_dict)
 
 
 
