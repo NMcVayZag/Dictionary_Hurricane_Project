@@ -88,12 +88,21 @@ def count_impacted_areas(areas_affected):
 affected_area_count_dict = count_impacted_areas(areas_affected)
 print(affected_area_count_dict)
 
-
-
-
-
-
 # write your find most affected area function here:
+def most_impacted_area(dict):
+    max_count = 0 
+    max_area = ""
+    key_list = list(dict.keys())
+    val_list = list(dict.values())
+    for i in range(len(dict)):
+        if val_list[i] > max_count:
+            max_count = val_list[i]
+            position = val_list.index(max_count)
+            max_area = key_list[position]
+    return(max_area,max_count)
+Area_of_impact, Impact_count = most_impacted_area(affected_area_count_dict)
+print(Area_of_impact,Impact_count)
+
 
 
 
