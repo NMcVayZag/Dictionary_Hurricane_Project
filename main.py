@@ -45,14 +45,17 @@ damages = damages_n
 print(damages)
 
 
-
-
-
-
-
-
 # write your construct hurricane dictionary function here:
-
+def dictionary_build(names, months, years, max_sustained_winds, areas_affected, damages, deaths):
+    new_dict = {}
+    for i in range(len(names)):
+        nest_dict = {}
+        nest_dict_data = ('Name',names[i]),("Month",months[i]),("Year",years[i]),("Max Sustained Wind",max_sustained_winds[i]),("Areas Affected", areas_affected[i]),("Damages", damages[i]),("Deaths",deaths[i])
+        nest_dict.update(nest_dict_data)
+        new_dict[names[i]] = nest_dict
+    return new_dict
+hurricane_data = dictionary_build(names, months, years, max_sustained_winds, areas_affected, damages, deaths)
+print(hurricane_data)
 
 
 
